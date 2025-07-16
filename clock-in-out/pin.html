@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user_pin</title>
+  <style>
+    body {
+      background-color: #858585;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow:hidden;
+      position:fixed;
+      width: 100%;
+      height:100%;
+    }
+    header {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 50px;
+      font-weight: bold;
+    }
+    .goback_button button {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 200px;
+      height: 50px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+
+    .goback_button button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+    .center_buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      padding: 2%;
+    }
+
+    .fancy-button {
+      display:flex;
+      max-width: 300px;
+      width: 130px;
+      height: 130px;
+      background: rgb(243, 242, 242);
+      border: 2px solid black;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(116, 115, 116, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+    }
+
+    .fancy-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .fancy-button button {
+      background: none;
+      border: none;
+      font-size: 5rem;
+      cursor: pointer;
+    }
+    .box {
+      transform: scale(0.6);
+      transform-origin: center center;
+      margin-top: 110px;   
+    }
+    .backspace_button{
+      display:flex;
+      width:130px;
+      height:130px;
+      border-radius:50%;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+
+    }
+    .backspace_button img {
+      width:70%;
+      height:60%;
+    }
+
+  </style>
+</head>
+<body>
+ <div class = "box">
+    <div class="center_buttons">
+        <button class="fancy-button">1</button>
+        <button class="fancy-button">2</button>
+        <button class="fancy-button">3</button>
+    </div>
+    <div class ="center_buttons">
+      <button class ="fancy-button">4</button>
+      <button class ="fancy-button">5</button>
+      <button class ="fancy-button">6</button>
+    </div>
+    <div class="center_buttons">
+      <button class ="fancy-button">7</button>
+      <button class ="fancy-button">8</button>
+      <button class ="fancy-button">9</button>
+    </div>
+    <div class ="center_buttons">
+      <button class = "fancy-button">0</button>
+    </div>
+    <button class = "backspace_button"><img src="images/Backspace.png" alt="delete"/></button>
+    
+ </div>
+
+    <div class="goback_button">
+        <a href="selector_page.html">
+            <button>Go back</button>
+        </a>
+    </div>
+
+</body>
+</html>
