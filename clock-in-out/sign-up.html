@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
+        <title>Log-in</title>
+        <style>
+            body{
+            background-color: #bebbbb;
+            font-family: Arial, sans-serif;
+            font-size: 3px;
+            color: rgb(180, 178, 178);
+            }
+            .border_login{
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            display:flex;
+            height: 80px;
+            width:40px;
+            gap:20px;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            align-items: center;;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            transform: scale(5);
+            overflow: visible;
+            }
+            .border_login img {
+                width: 100px;
+                height: 100px;
+                transform : scale(0.44);
+                margin-bottom: 80px;
+                position: absolute;
+            }
+            .login{
+                position: absolute;
+                height:5px;
+                width:50px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0 0 0 0.2px black;
+                transform: scale(1.5);
+                
+            }
+            .login2{
+                position: absolute;
+                height:5px;
+                width:50px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0 0 0 0.2px black;
+                top: 90px;
+                transform: scale(1.5);
+            }
+            .code{
+                position: absolute;
+                height:5px;
+                width:50px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0 0 0 0.2px black;
+                top: 102px;
+                transform: scale(1.5);
+            }
+            .full_name{
+                position: absolute;
+                height:5px;
+                width:50px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0 0 0 0.2px black;
+                top: 114px;
+                transform: scale(1.5);
+            }
+            .submit_button{
+                color: rgb(133, 133, 133);
+                width: 80px;
+                height: 15px;
+                font-size: 10px;
+                cursor: pointer;
+                outline: none;
+                border:none;
+                color: rgb(180, 178, 178);
+            }
+            .button_container{
+                display:flex;
+                gap: 10px;
+                margin-top: 97px;
+                transform: scale(0.4);
+            }
+            .goback_button button {
+                background-color:rgba(222, 219, 219, 0.556); ;
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                width: 200px;
+                height: 50px;
+                font-size: 18px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                outline: none;
+                border:none;
+                color: rgb(127, 127, 127);
+            }
+
+            .goback_button button:hover {
+                transform: translateY(-5px);
+                
+            }
+
+        </style>
+        <div class="goback_button">
+            <a href = "workplace.html">
+        <button>Go back</button>
+            </a>
+    </div>
+        <div class = "border_login">
+            <img src="images/Sign-up.png" alt="log-in">
+            <div class = "login"> Email or Phone
+            </div>
+            <div class = "login2"> Password 
+            </div>
+            <div class = "code"> Buisness Code
+            </div>
+            <div class = "full_name"> First and Last Name
+            </div>
+            <div class = "button_container">
+            <button class = "submit_button">
+                Signup
+            </button>
+            </div>
+
+        </div>
+        
+
+
+
+
+    </head>
+
+</html>
