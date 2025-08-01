@@ -15,9 +15,10 @@
             position: absolute;
             background-color: rgb(255, 255, 255);
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(61, 60, 60, 0.5);
             max-width: 400px;
+            border:none;
+            outline:none;
             display:flex;
             height: 80px;
             width:40px;
@@ -26,11 +27,12 @@
             margin-right: auto;
             justify-content: center;
             align-items: center;;
-            top: 50%;
+            top: 45%;
             left:50%;
             transform: translate(-50%,-50%);
-            transform: scale(5);
+            transform: scale(4);
             overflow: visible;
+            min-height:10vh ;
             }
             .border_login img {
                 width: 100px;
@@ -39,41 +41,64 @@
                 margin-bottom: 80px;
                 position: absolute;
             }
-            .login{
+            input.login{
                 position: absolute;
-                height:5px;
-                width:50px;
+                height:8px;
+                width:90px;
                 background-color: rgb(255, 255, 255);
-                box-shadow: 0 0 0 0.2px black;
-                transform: scale(1.5);
-                
+                transform: scale(0.6);
+                font-size: 7px;
+                outline:none;
+                border:none;
+                box-shadow: 0 0 0 0.4px rgb(178, 177, 177);     
             }
-            .login2{
+            input.login2{
                 position: absolute;
-                height:5px;
-                width:50px;
+                height:8px;
+                width:90px;
                 background-color: rgb(255, 255, 255);
-                box-shadow: 0 0 0 0.2px black;
-                top: 90px;
-                transform: scale(1.5);
+                top: 86px;
+                transform: scale(0.6);
+                font-size: 7px;
+                outline: none;
+                border:none;
+                box-shadow: 0 0 0 0.4px rgb(178, 177, 177);
             }
-            .code{
+            input.code{
                 position: absolute;
-                height:5px;
-                width:50px;
+                height:8px;
+                width:90px;
                 background-color: rgb(255, 255, 255);
-                box-shadow: 0 0 0 0.2px black;
-                top: 102px;
-                transform: scale(1.5);
+                top: 93px;
+                transform: scale(0.6);
+                font-size: 7px;
+                outline: none;
+                border:none;
+                box-shadow: 0 0 0 0.4px rgb(178, 177, 177);
             }
-            .full_name{
+            input.full_name{
                 position: absolute;
-                height:5px;
-                width:50px;
+                height:8px;
+                width:90px;
                 background-color: rgb(255, 255, 255);
-                box-shadow: 0 0 0 0.2px black;
-                top: 114px;
-                transform: scale(1.5);
+                top: 101px;
+                transform: scale(0.6);
+                font-size: 7px;
+                outline: none;
+                border:none;
+                box-shadow: 0 0 0 0.4px rgb(178, 177, 177);
+            }
+            input.Last_name{
+                position: absolute;
+                height:8px;
+                width:90px;
+                background-color: rgb(255, 255, 255);
+                top: 109px;
+                transform: scale(0.6);
+                font-size: 7px;
+                outline: none;
+                border:none;
+                box-shadow: 0 0 0 0.4px rgb(178, 177, 177);
             }
             .submit_button{
                 color: rgb(133, 133, 133);
@@ -85,12 +110,7 @@
                 border:none;
                 color: rgb(180, 178, 178);
             }
-            .button_container{
-                display:flex;
-                gap: 10px;
-                margin-top: 97px;
-                transform: scale(0.4);
-            }
+            
             .goback_button button {
                 background-color:rgba(222, 219, 219, 0.556); ;
                 position: fixed;
@@ -108,8 +128,34 @@
 
             .goback_button button:hover {
                 transform: translateY(-5px);
-                
+                }
+            .visible{
+                position: relative;
+                background-color: rgb(255, 255, 255);
+                display:flex;
+                width: 10px;
+                height: 9px;
+                font-size: 10px;
+                cursor:pointer;
+                border: none;
+                color: rgb(255, 255, 255);
+                align-items: center;
+                justify-content: center;
+                top:-98px;
+                right: -17px;
             }
+            .visible img{
+                width: 29px;
+                height: 29px;
+                top:-13px;
+            }
+            .button_container{
+                display:flex;
+                gap: 10px;
+                margin-top: 97px;
+                transform: scale(0.4);
+            }
+            
 
         </style>
         <div class="goback_button">
@@ -119,21 +165,32 @@
     </div>
         <div class = "border_login">
             <img src="images/Sign-up.png" alt="log-in">
-            <div class = "login"> Email or Phone
-            </div>
-            <div class = "login2"> Password 
-            </div>
-            <div class = "code"> Buisness Code
-            </div>
-            <div class = "full_name"> First and Last Name
-            </div>
+            <input type="text" placeholder ="Email or Phone"class = "login">
+            <input type= Password id = "password" placeholder = "Password" class = "login2"> 
+            <input type="text" placeholder = "Buisness Code" class = "code">
+            <input type="text" placeholder ="First name" class = "full_name">
+            <input type="text" placeholder ="Last name" class = "Last_name">
             <div class = "button_container">
             <button class = "submit_button">
                 Signup
             </button>
+            <button id = "toogle_button"class = "visible"><img src = "images/visible.png"></button>
             </div>
 
         </div>
+        <script>
+            toggleBtn=document.getElementById("toogle_button");
+            passwordInput=document.getElementById("password");
+            toggleBtn.onclick = function (){
+                if (passwordInput.type == "password") {
+                    passwordInput.type = "text";
+                    toggleBtn.innerHTML = '<img src="images/invisible.png">';
+                } else {
+                    passwordInput.type = "password";
+                    toggleBtn.innerHTML = '<img src="images/visible.png">';
+                }
+            }
+        </script>
         
 
 
