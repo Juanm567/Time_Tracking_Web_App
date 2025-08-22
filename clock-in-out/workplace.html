@@ -102,11 +102,40 @@
       .submit_button:hover{
         filter: brightness(1);
       }
+      .dropdown{
+        width: 200px;
+        height: 40px;
+        font-size: 14px;
+        padding: 0 12px;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        box-shadow: 0 0 0 0.8px rgb(178, 177, 177);
+        background: #d1cece;
+      }
+      .helper {
+      text-align: center;
+      padding: 20px;
+      font-size: small;
+    }
+
+    .helper a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: small;
+      text-decoration: underline;;
+    }
     </style>
   </head>
   <body>
+    
     <div class="border_login">
-      <img class="logo" src="images/log-in.png" alt="log-in">
+      <img id = bg class="logo" src="images/Worker.png" alt="log-in">
+      <select id="dropdown" class="dropdown">
+        <option id = "worker"value="Worker">Worker</option>
+        <option id = "manager"value="Manager">Manager</option>
+      </select>
 
       <div class="field">
         <input type="text" placeholder="Email or Phone" class="input" />
@@ -120,17 +149,41 @@
       </div>
 
       <div class="button_container">
-        <button class="submit_button" type="button">Login</button>
+        <button id = "supp" class="submit_button" type="button">Login</button>
         <button id="sup" class="submit_button" type="button">Signup</button>
       </div>
+      <div class="helper">
+          <a href="Pin.html">Pin interface?</a>
+
     </div>
 
     <script>
-      // Nav
+   
+      const manager = document.createElement("img");
+      manager.src = "images/Admin.png";
+      manager.alt = "Manager";
+      const worker = document.createElement("img")
+      worker.src = "images/Worker.png";
+      worker.alt = "Worker";
+      document.getElementById("dropdown").addEventListener("change", function() {
+        const selectedValue = this.value;
+        const image = document.getElementById("bg");
+        if (selectedValue === "Manager") {
+          image.src = manager.src;
+          image.alt = manager.alt;
+        } else if (selectedValue === "Worker") {
+          image.src = worker.src;
+          image.alt = worker.alt;
+        }
+       });
       const sign_up_link = "sign-up.html";
       document.getElementById("sup").onclick = function () {
         window.location.href = sign_up_link;
       };
+      const login_link = "clocks.html";
+      document.getElementById("supp").onclick = function () {
+        window.location.href = login_link;
+      }
 
       // Password toggle
       const toggleBtn = document.getElementById("toggle_button");
