@@ -6,31 +6,34 @@
   <title>Clock in/Clock out</title>
   <style>
     body {
+      min-height: 80svh;
       background-color: #bebbbb;
       font-family: Arial, sans-serif;
       margin: 0;
+      place-items: center;
+      display: grid;
     }
-
-    header {
-      background-color: black;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 50px;
-      font-weight: bold;
-    }
-
     .info {
+      text-align: center;
+      font-size: 25px;
+      color: #000;
+      padding: 3px;
+      margin-top: 250px;
+    }
+    .infoo {
       text-align: center;
       font-size: 30px;
       color: #000;
-      padding: 2rem;
+      padding: 3px;
+      margin-bottom: 10px;
+      font-size: 23px;
     }
 
     #datetime {
       text-align: center;
       margin-top: -20px;
       font-size: 24px;
+      margin-top:60px;
     }
 
     .center_buttons {
@@ -64,39 +67,27 @@
     }
 
     .fancy-button img {
-      width: 70%;
+      width: 60%;
       height: auto;
     }
-
-    .goback_button button {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 200px;
-      height: 50px;
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: white;
-      border: 2px solid black;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: all 0.2s ease;
+    .helper {
+      text-align: center;
+      padding: 10px;
+      font-size: large;
+      
     }
 
-    .goback_button button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    .helper a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size:large;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
-    Broadstone bar and grill
-  </header>
-
   <div id ="user-name" class="info">Welcome Juan Mendez.</div>
-  <div class="info">Hours worked: 17.5 Hrs</div>
   <h1 id="datetime"></h1>
 
   <div class="center_buttons">
@@ -104,12 +95,9 @@
     <button class="fancy-button"><img src="images/clock_out.png" alt="Clock Out" /></button>
     <button class="fancy-button"><img src="images/break.png" alt="Break" /></button>
   </div>
-
-  <div class="goback_button">
-    <a href = "pin.html">  
-    <button>Go back</button>
-    </a>
-
+  <div class="infoo">Hours worked: 17.5 Hrs</div>
+  <div class="helper">
+    <a href="workplace.html">Log out</a>
   </div>
 
   <script>
