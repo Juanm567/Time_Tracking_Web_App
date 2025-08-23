@@ -100,6 +100,22 @@
         background: #f2f2f2;
         box-shadow: 0 0 0 0.8px rgb(178, 177, 177);
       }
+      .helper {
+      text-align: center;
+      padding: 20px;
+      font-size: small;
+    }
+
+    .helper a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: small;;
+    }
+
+    .helper a:hover {
+      text-decoration: underline;
+    }
     </style>
   </head>
   <body>
@@ -130,14 +146,25 @@
       </div>
 
       <div class="actions">
-        <button class="btn" type="button">Signup</button>
+        <button id = sup class="btn" type="button">Signup</button>
       </div>
+      <div class="helper">
+          Already signed up?
+          
+        <a href="workplace.html">Log in here</a>
+        
+        </div>
     </div>
 
     <script>
       // Password toggle
       const toggleBtn = document.getElementById("toggle_button");
       const passwordInput = document.getElementById("password");
+
+      const sign_up_link = "workplace.html";
+      document.getElementById("sup").onclick = function () {
+        window.location.href = sign_up_link;
+      }
 
       toggleBtn.onclick = function () {
         const isPassword = passwordInput.type === "password";
