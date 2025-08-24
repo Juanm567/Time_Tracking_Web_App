@@ -5,147 +5,182 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>user_pin</title>
   <style>
+    /* base */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
-      background-color: #bebbbb;
-      font-family: Arial, sans-serif;
       margin: 0;
-      width: 100%;
-      height:100%;
+      font-family: Arial, sans-serif;
+      background-color: #bebbbb;
+      color: #111;
+      display: flex;
+      flex-direction: column;
     }
+
     header {
-      background-color: black;
-      color: white;
+      background-color: #000;
+      color: #fff;
       text-align: center;
       padding: 20px;
-      font-size: 50px;
-      font-weight: bold;
-    }
-    .goback_button button {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 200px;
-      height: 50px;
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: white;
-      border: 2px solid black;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: all 0.2s ease;
+      font-size: 42px;     /* a bit smaller for better fit */
+      font-weight: 700;
     }
 
-    .goback_button button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 24px 16px;
     }
-    .center_buttons {
+
+    /* card/panel */
+    .panel {
+      background: #c5c4c4;
+      border: 2px solid #000;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.25);
+      padding: 24px;
+      width: min(520px, 92vw);
+      display: grid;
+      gap: 20px;
+      justify-items: center;
+    }
+
+    /* dots */
+    .pin_symbols {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      gap: 16px;
       align-items: center;
-      gap: 60px;
-      padding: 2%;
-    }
-
-    .fancy-button {
-      display:flex;
-      max-width: 300px;
-      width: 200px;
-      height: 200px;
-      background: rgb(243, 242, 242);
-      border: 2px solid black;
-      border-radius: 50%;
-      box-shadow: 0 4px 15px rgba(116, 115, 116, 0.3);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       justify-content: center;
-      align-items: center;
-      padding: 5px;
-      font-size: 3em;
-    }
-
-    .fancy-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    
-    .box {
-      transform: scale(0.6);
-      transform-origin:center;
-    }
-    .pin_symbols{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin-bottom: -80px;
-    }
-    .backspace_button{
-      display:flex;
-      width:200px;
-      height:200px;
-      border-radius:50%;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      background: rgb(255, 255, 255);
-
-    }
-    .backspace_button img {
-      width:74%;
-      height:75%;
+      margin: 6px 0 8px;
     }
     .small-circle{
-      display:flex;
-      width: 20px;
-      height: 20px;
-      background-color: grey;
-      border-radius: 50px;
-      align-items: center;
-      margin-top: 110px;
-      align-items: center;
-      justify-content:center;
-      padding: 5px;
-      border: 2px solid black;
-      
+      width: 18px;
+      height: 18px;
+      background-color: rgb(237, 237, 237);
+      border-radius: 50%;
+      border: 2px solid #000;
+      transition: background .15s ease;
     }
 
+    /* keypad */
+    .box { 
+      width: 100%;
+     }
+    .center_buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      justify-items: center;
+      padding: 0;
+    }
+    .center_buttons + .center_buttons { margin-top: 12px; }
+
+    .fancy-button {
+      display: grid;
+      place-items: center;
+      width: 110px;
+      height: 110px;
+      max-width: 30vw;
+      max-height: 30vw;
+      background: #c8c8c8;
+      border: 2px solid #000;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(116,115,116,0.3);
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+      font-size: 36px;
+      font-weight: 700;
+      user-select: none;
+    }
+    .fancy-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,.35);
+    }
+
+    /* row for single 0 and backspace */
+    .last-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      justify-items: center;
+      margin-top: 12px;
+    }
+    .spacer { visibility: hidden; }
+
+    .backspace_button{
+      display: grid;
+      place-items: center;
+      width: 110px;
+      height: 110px;
+      max-width: 30vw;
+      max-height: 30vw;
+      border-radius: 50%;
+      background: #c8c8c8;
+      border: 2px solid #000;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(116,115,116,0.3);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .backspace_button:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+    .backspace_button img { 
+      width: 40%; 
+      height: auto; 
+      display: block; }
+      .helper {
+      text-align: center;
+      padding: 20px;
+      font-size: large;
+    }
+    .helper a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size:large;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div class = "pin_symbols">
-      <div class = "small-circle"></div>
-      <div class = "small-circle"></div>
-      <div class = "small-circle"></div>
-      <div class = "small-circle"></div>
+<main>
+    <section class="panel">
+      <div class="pin_symbols">
+        <div class="small-circle"></div>
+        <div class="small-circle"></div>
+        <div class="small-circle"></div>
+        <div class="small-circle"></div>
       </div>
-    <div class = "box">
-      <div class="center_buttons">
-        <button class="fancy-button">1</button>
-        <button class="fancy-button">2</button>
-        <button class="fancy-button">3</button>
-    </div>
-    <div class ="center_buttons">
-      <button class ="fancy-button">4</button>
-      <button class ="fancy-button">5</button>
-      <button class ="fancy-button">6</button>
-    </div>
-    <div class="center_buttons">
-      <button class ="fancy-button">7</button>
-      <button class ="fancy-button">8</button>
-      <button class ="fancy-button">9</button>
-    </div>
-    <div class ="center_buttons">
-      <button class = "fancy-button">0</button>
-    </div>
-    <button id = "bcksp" class = "backspace_button"><img src="images/Backspace.png" alt="delete"/></button>
-    
-    </div>
-    
-    <script>
+
+      <div class="box">
+        <div class="center_buttons">
+          <button class="fancy-button">1</button>
+          <button class="fancy-button">2</button>
+          <button class="fancy-button">3</button>
+        </div>
+        <div class="center_buttons">
+          <button class="fancy-button">4</button>
+          <button class="fancy-button">5</button>
+          <button class="fancy-button">6</button>
+        </div>
+        <div class="center_buttons">
+          <button class="fancy-button">7</button>
+          <button class="fancy-button">8</button>
+          <button class="fancy-button">9</button>
+        </div>
+        <div class="last-row">
+          <div class="spacer fancy-button" aria-hidden="true"></div>
+          <button class="fancy-button">0</button>
+          <button id="bcksp" class="backspace_button"><img src="images/x.png" alt="delete"/></button>
+        </div>
+      </div>
+      <div class = "helper">
+      <a href="workplace.html">Log out</a>
+      </div>
+    </section>
+  </main>
+  <script>
       const buttons = document.querySelectorAll(".fancy-button");
       const circless = document.querySelectorAll(".small-circle");
       let filled = 0
@@ -156,7 +191,7 @@
               filled += 1;
             }
             if(filled == circles.length){
-              link = "clocks.html"
+              link = "clocks_p.html"
               window.location.href = link;
             }
              })
@@ -168,14 +203,6 @@
           circles[k].style.backgroundColor = "grey"
         }filled = 0
       })
-    </script>
-
-    <div class="goback_button">
-        <a href="selector_page.html">
-            <button>Go back</button>
-        </a>
-    </div>
-
+  </script>
 </body>
 </html>
-
