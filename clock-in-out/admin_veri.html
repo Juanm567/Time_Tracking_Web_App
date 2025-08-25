@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify_to_pin</title>
+  <style>
+    body {
+      min-height: 80svh;
+      background-color: #bebbbb;
+      font-family: sans-serif;
+      margin: 0;
+      place-items: center;
+      display: grid;
+    }
+    .enter_code{
+        width:300px;
+        height:30px;
+        transform: scale(1.3);
+
+    }
+    .enter_code h2{
+        margin-bottom: 10px;
+        font-size:large;
+    }
+    </style>
+</head>
+<body>
+    <div class = "enter_code">
+        <h2>Enter today's code:</h2>
+        <input type="text" id="code" name="code" maxlength="6" />
+        <button id="verify_button" type="button">Verify</button>
+</body>
