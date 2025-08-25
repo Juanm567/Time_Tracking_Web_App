@@ -84,9 +84,28 @@
       font-size:large;
       text-decoration: underline;
     }
+    .logo_header {
+    width: 400px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin-top: 40px;
+    display: flex;     
+    align-items: center;        
+    justify-content: center;  
+}
+
+      .logo_header img{
+        scale: 0.3;
+        }
   </style>
 </head>
 <body>
+  <div class = "logo_header">
+      <img src="images/Timely_logo.png" alt="Time Tracker Logo">
+      </div>
   <div id ="user-name" class="info">Welcome Juan Mendez.</div>
   <h1 id="datetime"></h1>
 

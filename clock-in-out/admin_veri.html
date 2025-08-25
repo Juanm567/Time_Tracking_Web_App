@@ -17,17 +17,68 @@
         width:300px;
         height:30px;
         transform: scale(1.3);
-
+        position : fixed;
+        top: 36%;
+        left: 46%;
     }
     .enter_code h2{
         margin-bottom: 10px;
         font-size:large;
+        font-weight:normal;
     }
+    .helper {
+      text-align: center;
+      padding: 10px;
+      font-size: large;
+      scale: 0.7;
+      margin-right: 100px;
+      
+    }
+
+    .helper a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size:large;
+      text-decoration: underline;
+    }
+    .logo_header {
+    width: 400px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin-bottom: 350px;
+    margin-right: 50px;
+    display: flex;     
+    align-items: center;        
+    justify-content: center;  
+}
+
+    .logo_header img{
+        scale: 0.3;
+        }
     </style>
 </head>
 <body>
+    <div class = "logo_header">
+      <img src="images/Timely_logo.png" alt="Time Tracker Logo">
+      </div>
     <div class = "enter_code">
         <h2>Enter today's code:</h2>
         <input type="text" id="code" name="code" maxlength="6" />
         <button id="verify_button" type="button">Verify</button>
+    <div class="helper">
+    <a href="workplace.html">Log out</a>
+  </div>
+  <script>
+    document.getElementById("verify_button").onclick = function() {
+      var code = document.getElementById("code").value;
+      if(code.length === 0 ) {
+        alert("Please enter a code to continue.");
+      } else {
+        window.location.href = "Pin.html";
+      }
+    };
+  </script>
 </body>

@@ -18,7 +18,20 @@
       img { 
         display: block; 
         max-width: 100%; 
-        height: auto; }
+        height: auto; 
+      }
+      .logo_header{
+        width: 400px;
+        height: 100px;
+        position:fixed;
+        top: 0;
+        left: 1;
+      }
+      .logo_header img{
+        justify-items: center;
+        scale: 0.7;
+        
+      }
 
       /* Card */
       .border_login{
@@ -129,8 +142,10 @@
     </style>
   </head>
   <body>
-    
-    <div class="border_login">
+    <div class = "logo_header">
+      <img src="images/Timely_logo.png" alt="Time Tracker Logo">
+      </div>
+     <div class="border_login">
       <img id = bg class="logo" src="images/Worker.png" alt="log-in">
       <select id="dropdown" class="dropdown">
         <option id = "worker"value="Worker">Worker</option>
