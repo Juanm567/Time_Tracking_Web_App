@@ -1,3 +1,4 @@
+# Timely
 I’ve recently finished Version 1 of the Frontend 🎉 — which includes the initial UI pages (login, signup, clock in/out interface).
 I’m now moving on to building out the Backend ⚙️ using Flask + SQL to handle data storage and authentication.
 
